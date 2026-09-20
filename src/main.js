@@ -31,7 +31,7 @@
     compare: $('lv-compare'), facts: $('lv-facts'), num: $('lv-num'), total: $('lv-total'),
     hint: $('hint'), sbWrap: $('scalebar'), sbLine: $('scalebar-line'), sbLabel: $('scalebar-label'),
     prev: $('btn-prev'), next: $('btn-next'), rotate: $('btn-rotate'), reset: $('btn-reset'),
-    panel: $('panel'), toast: $('toast'),
+    panel: $('panel'), panelToggle: $('panel-toggle'), toast: $('toast'),
     brandSub: $('brand-sub'), langBtn: $('btn-lang'),
     trail: $('trail'), links: $('links'), ribbon: $('ribbon')
   };
@@ -853,6 +853,12 @@
   el.next.addEventListener('click', function () { goTo(app.index + 1); });
   el.rotate.addEventListener('click', toggleRotate);
   el.reset.addEventListener('click', resetView);
+  if (el.panelToggle) {
+    el.panelToggle.addEventListener('click', function () {
+      var collapsed = el.panel.classList.toggle('collapsed');
+      el.panelToggle.setAttribute('aria-expanded', String(!collapsed));
+    });
+  }
   if (el.langBtn) {
     // clicking a segment jumps straight to that language; the pill itself cycles
     el.langBtn.addEventListener('click', function (e) {

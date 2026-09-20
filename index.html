@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SCALE — From Human Body to Quark</title>
 <meta name="description" content="An interactive 3D walk down twelve orders of magnitude: human body, skeleton, organs, tissue, cell, nucleus, chromosome, DNA, molecule, atom, atomic nucleus, quarks.">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260920">
 </head>
 <body>
 
@@ -40,13 +40,21 @@
 <nav class="trail" id="trail" aria-label="Containment chain"></nav>
 
 <aside class="panel" id="panel">
-  <div class="panel-kind" id="lv-kind">Organism</div>
+  <div class="panel-head">
+    <div class="panel-kind" id="lv-kind">Organism</div>
+    <button class="panel-toggle" id="panel-toggle" type="button" aria-expanded="true" aria-controls="panel-content">
+      <span class="panel-toggle-icon" aria-hidden="true">&#8964;</span>
+      <span class="panel-toggle-label">Details</span>
+    </button>
+  </div>
+  <div id="panel-content">
   <h1 class="panel-name" id="lv-name">Human Body</h1>
   <div class="panel-scale"><span class="dot"></span><span id="lv-scale">1.7 m</span></div>
   <p class="panel-blurb" id="lv-blurb"></p>
   <div class="compare" id="lv-compare"></div>
   <div class="links" id="links"></div>
   <ul class="facts" id="lv-facts"></ul>
+  </div>
 </aside>
 
 <nav class="rail" id="rail" aria-label="Scale ladder"></nav>
@@ -89,7 +97,7 @@
 <script src="src/data.js"></script>
 <script src="src/i18n.js"></script>
 <script src="src/models.js"></script>
-<script src="src/main.js"></script>
+<script src="src/main.js?v=20260920"></script>
 <script>
   // If the scene never boots, surface a helpful message instead of a blank page.
   setTimeout(function () {
