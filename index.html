@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SCALE — From Human Body to Quark</title>
+<meta name="description" content="An interactive 3D walk down twelve orders of magnitude: human body, skeleton, organs, tissue, cell, nucleus, chromosome, DNA, molecule, atom, atomic nucleus, quarks.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="gl"></canvas>
+<div id="vignette"></div>
+<div id="anno-layer"></div>
+<div id="door-layer">
+  <button id="door-pill" type="button">
+    <span class="dp-ico">&#8595;</span>
+    <span class="dp-body"><b class="dp-name"></b><i class="dp-hook"></i></span>
+    <span class="dp-ratio"></span>
+  </button>
+</div>
+<div id="warp"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <div>
+      <div class="brand-title">SCALE</div>
+      <div class="brand-sub" id="brand-sub">from body to quark</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="counter"><span id="lv-num">01</span><span class="sep">/</span><span id="lv-total">12</span></div>
+    <button class="lang-switch" id="btn-lang" type="button" title="Switch language (L)" aria-label="Switch language"></button>
+    <button class="icon-btn" id="btn-rotate" type="button" title="Auto-rotate (A)" aria-label="Toggle auto-rotate">&#8635;</button>
+    <button class="icon-btn" id="btn-reset" type="button" title="Reset view (R)" aria-label="Reset view">&#9678;</button>
+  </div>
+</header>
+
+<nav class="trail" id="trail" aria-label="Containment chain"></nav>
+
+<aside class="panel" id="panel">
+  <div class="panel-kind" id="lv-kind">Organism</div>
+  <h1 class="panel-name" id="lv-name">Human Body</h1>
+  <div class="panel-scale"><span class="dot"></span><span id="lv-scale">1.7 m</span></div>
+  <p class="panel-blurb" id="lv-blurb"></p>
+  <div class="compare" id="lv-compare"></div>
+  <div class="links" id="links"></div>
+  <ul class="facts" id="lv-facts"></ul>
+</aside>
+
+<nav class="rail" id="rail" aria-label="Scale ladder"></nav>
+
+<footer class="dock">
+  <button class="nav-btn" id="btn-prev" type="button">
+    <span class="arrow">&#8593;</span><span class="nav-label">Zoom out</span>
+  </button>
+  <div class="hint" id="hint">Scroll to zoom &mdash; keep going to travel the scale<br>Click the ring to step through &middot; &#8593;&#8595; or Enter to descend</div>
+  <button class="nav-btn primary" id="btn-next" type="button">
+    <span class="nav-label">Descend</span><span class="arrow">&#8595;</span>
+  </button>
+</footer>
+
+<div class="scalebar" id="scalebar">
+  <div class="scalebar-line" id="scalebar-line"></div>
+  <div class="scalebar-label" id="scalebar-label">10 cm</div>
+</div>
+
+<div id="ribbon"></div>
+
+<div id="toast"></div>
+
+<div id="fallback">
+  <div>
+    <h1>Could not start the 3D scene</h1>
+    <p>This app needs WebGL and the bundled Three.js build. If you opened the file directly, try serving the folder instead:</p>
+    <code>python -m http.server 8000 &nbsp;&rarr;&nbsp; http://localhost:8000/</code>
+  </div>
+</div>
+
+<noscript>
+  <div id="fallback" class="show"><div><h1>JavaScript is required</h1>
+  <p>This is an interactive 3D app. Please enable JavaScript and reload.</p></div></div>
+</noscript>
+
+<script src="vendor/three.classic.js"></script>
+<script src="vendor/orbit-controls.js"></script>
+<script src="vendor/room-environment.js"></script>
+<script src="src/data.js"></script>
+<script src="src/i18n.js"></script>
+<script src="src/models.js"></script>
+<script src="src/main.js"></script>
+<script>
+  // If the scene never boots, surface a helpful message instead of a blank page.
+  setTimeout(function () {
+    if (!document.body.classList.contains('ready')) {
+      document.getElementById('fallback').classList.add('show');
+    }
+  }, 8000);
+</script>
+</body>
+</html>
