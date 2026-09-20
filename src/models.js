@@ -51,13 +51,16 @@
   /* --------------------------------------------------------------- material */
   function std(color, o) {
     o = o || {};
-    var m = new T.MeshStandardMaterial({
+    var m = new T.MeshPhysicalMaterial({
       color: color,
       roughness: o.roughness !== undefined ? o.roughness : 0.42,
       metalness: o.metalness !== undefined ? o.metalness : 0.05,
+      clearcoat: o.clearcoat !== undefined ? o.clearcoat : 0.18,
+      clearcoatRoughness: o.clearcoatRoughness !== undefined ? o.clearcoatRoughness : 0.28,
       flatShading: !!o.flat,
       side: o.side || T.FrontSide
     });
+    m.envMapIntensity = o.envMapIntensity !== undefined ? o.envMapIntensity : 0.85;
     if (o.emissive) {
       m.emissive = new T.Color(o.emissive);
       m.emissiveIntensity = o.emissiveIntensity !== undefined ? o.emissiveIntensity : 0.6;
@@ -150,7 +153,7 @@
     var vb = new T.Vector3(b[0], b[1], b[2]);
     var dir = new T.Vector3().subVectors(vb, va);
     var len = dir.length();
-    var geo = new T.CapsuleGeometry(r, Math.max(len - 2 * r, 0.0005), 4, 12);
+    var geo = new T.CapsuleGeometry(r, Math.max(len - 2 * r, 0.0005), 6, 18);
     var m = new T.Mesh(geo, mat);
     m.position.copy(va).add(vb).multiplyScalar(0.5);
     m.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), dir.normalize());
@@ -162,7 +165,7 @@
     var curve = new T.CatmullRomCurve3(points.map(function (p) {
       return new T.Vector3(p[0], p[1], p[2]);
     }), !!closed);
-    var geo = new T.TubeGeometry(curve, segs || 96, radius, 10, !!closed);
+    var geo = new T.TubeGeometry(curve, segs || 96, radius, 14, !!closed);
     return mesh(parent, geo, mat);
   }
 
@@ -186,7 +189,7 @@
         .addScaledVector(n1, Math.cos(ang) * coilR)
         .addScaledVector(n2, Math.sin(ang) * coilR));
     }
-    return new T.TubeGeometry(new T.CatmullRomCurve3(pts), n * 2, tubeR, 6, false);
+    return new T.TubeGeometry(new T.CatmullRomCurve3(pts), n * 2, tubeR, 8, false);
   }
 
   /** Soft radial-gradient texture, used for glows and contact shadows. */

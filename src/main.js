@@ -41,7 +41,9 @@
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = T.SRGBColorSpace;
   renderer.toneMapping = T.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.02;
+  renderer.toneMappingExposure = 1.08;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = T.PCFSoftShadowMap;
 
   var scene = new T.Scene();
   var camera = new T.PerspectiveCamera(FOV, 1, 0.1, 100);
@@ -73,6 +75,11 @@
   scene.add(new T.HemisphereLight(0xffffff, 0xdfe7f2, 1.5));
   var key = new T.DirectionalLight(0xffffff, 2.1);
   key.position.set(4, 6, 5);
+  key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  key.shadow.camera.near = 0.1;
+  key.shadow.camera.far = 30;
+  key.shadow.bias = -0.0004;
   scene.add(key);
   var fill = new T.DirectionalLight(0xcfe0ff, 0.9);
   fill.position.set(-5, -2, -4);
@@ -127,6 +134,11 @@
     var lv = LEVELS[i];
     if (cache[lv.id]) return cache[lv.id];
     var g = SCALE.MODELS[lv.id]();
+    g.traverse(function (o) {
+      if (!o.isMesh) return;
+      o.castShadow = true;
+      o.receiveShadow = true;
+    });
     g.visible = false;
     g.userData.id = lv.id;
     cache[lv.id] = g;
