@@ -347,6 +347,8 @@
     anno(g, 0.14, 0.03, 0.16, 'Foot · 26 cm', 'a');
     anno(g, -0.30, 0.60, 0.0, 'Femur · 48 cm', 'b');
     anno(g, -0.42, 1.62, 0.0, '1.7 m tall', 'c');
+    anno(g, 0.00, 0.85, 0.22, 'Torso · 60 cm', 'a');
+    anno(g, 0.38, 1.40, -0.08, 'Pelvis · 30 cm', 'b');
 
     // door: the chest, where the skeleton sits just under the skin
     door(g, 0, 1.24, 0.10, 0.17);
@@ -452,6 +454,8 @@
     anno(g, 0.20, 0.66, 0.03, 'Femur · 48 cm', 'c');
     anno(g, -0.16, 1.44, -0.06, 'Spine · 33 vertebrae', 'a');
     anno(g, 0.30, 0.86, 0.05, 'Hand · 27 bones', 'b');
+    anno(g, -0.28, 0.98, -0.12, 'Pelvis · 26 bones', 'c');
+    anno(g, 0.02, 1.52, 0.12, 'Jaw · 14 bones', 'a');
 
     // door: inside the ribcage, where the organs are held
     door(g, 0, 1.18, 0.02, 0.16);
@@ -558,6 +562,8 @@
     anno(g, 0.46, 0.14, 0.05, 'Stomach', 'a');
     anno(g, 0.44, -0.06, -0.20, 'Kidney ×2', 'c');
     anno(g, -0.10, -1.05, 0.30, 'Small intestine · 6 m', 'b');
+    anno(g, 0.10, 1.26, -0.08, 'Trachea', 'a');
+    anno(g, -0.36, 0.18, -0.24, 'Aorta', 'c');
 
     g.userData.tick = function () { };
     return g;
@@ -614,6 +620,8 @@
     anno(g, 0.42, 0.60, 1.99, 'Tight junction', 'c');
     anno(g, 0.4, -0.16, 2.1, 'Basement membrane', 'a');
     anno(g, -2.6, 0.95, -1.4, '2 mm of tissue ≈ 100,000 cells', 'b');
+    anno(g, 1.75, 0.12, 0.95, 'Epithelium', 'a');
+    anno(g, -1.10, 1.10, -1.10, 'Cell sheet', 'c');
 
     g.userData.unitMeters = 0.002 / (cols * dx + R);
     g.userData.tick = function () { };
@@ -711,6 +719,8 @@
     anno(g, -0.72, -0.52, -0.30, 'Rough ER', 'b');
     anno(g, 0.52, 0.10, 0.72, 'Golgi apparatus', 'a');
     anno(g, 0.30, -0.86, -0.30, 'Ribosomes', 'c');
+    anno(g, -1.12, 0.64, -0.35, 'Cytosol', 'a');
+    anno(g, 0.82, 0.82, -0.70, 'Cell membrane', 'b');
 
     // door: the nucleus, the control room
     door(g, -0.16, 0.10, 0.06, 0.42);
@@ -772,6 +782,8 @@
     anno(g, -0.62, 0.44, 0.36, 'Chromatin · 2 m of DNA', 'b');
     anno(g, 0.30, 0.06, 0.26, 'Nucleolus', 'a');
     anno(g, -0.30, -1.02, -0.20, '6 µm across', 'c');
+    anno(g, 0.96, -0.56, -0.38, 'Nucleoplasm', 'a');
+    anno(g, -0.94, 0.98, 0.52, 'Chromatin loop', 'b');
 
     // door: the first chromatin strand - the DNA that condenses into a
     // chromosome when this cell divides.
@@ -843,6 +855,8 @@
     anno(g, 0.32, 0.02, 0.26, 'Centromere', 'c');
     anno(g, -0.52, -1.22, 0.08, 'One DNA molecule', 'b');
     anno(g, 0.0, 1.88, 0.0, '1.4 µm when condensed', 'b');
+    anno(g, 0.62, -0.72, 0.18, 'Telomere', 'c');
+    anno(g, -0.72, 0.38, 0.22, 'Histone core', 'a');
 
     // door: one arm of a chromatid - a single DNA molecule
     door(g, 0.29, -1.05, 0.0, 0.22);
@@ -893,6 +907,8 @@
     anno(g, -1.35, -0.75, 0.4, 'Base pair (A–T / G–C)', 'c');
     anno(g, 0.0, y0 + (N - 1) * rise + 0.55, 0.0, '3.4 nm per full turn', 'b');
     anno(g, 0.0, y0 - 0.62, 0.0, '2 nm across', 'b');
+    anno(g, 1.70, -1.20, 0.12, 'Major groove', 'a');
+    anno(g, -1.80, 0.80, -0.20, 'Minor groove', 'c');
 
     // door: a base-pair rung, dead centre of the helix
     door(g, 0, y0 + 13 * rise, 0, 0.44);
@@ -1180,6 +1196,8 @@
     anno(g, -0.85, 0.62, -0.35, 'Neutron · 0', 'b');
     anno(g, 0.0, -0.35, 1.05, 'Gluon field', 'c');
     anno(g, 0.0, 1.72, 0.0, '5 femtometres', 'b');
+    anno(g, 1.25, -0.20, -0.80, 'Strong force', 'a');
+    anno(g, -1.15, 0.25, 0.90, 'Nucleon core', 'b');
 
     // door: one particular proton, ringed so you can follow it as it jiggles
     if (protons[0]) door(protons[0], 0, 0, 0, 0.32);
