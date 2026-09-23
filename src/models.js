@@ -453,11 +453,11 @@
     g.position.y = -0.85;
 
     anno(g, 0.13, 1.70, 0, 'Skull · 22 bones', 'a');
-    anno(g, -0.24, 1.20, 0.09, 'Ribcage · 24 ribs', 'b');
+    anno(g, 0.06, 1.16, 0.14, 'Ribcage · 24 ribs', 'b');
     anno(g, 0.20, 0.66, 0.03, 'Femur · 48 cm', 'c');
     anno(g, -0.16, 1.44, -0.06, 'Spine · 33 vertebrae', 'a');
     anno(g, 0.30, 0.86, 0.05, 'Hand · 27 bones', 'b');
-    anno(g, -0.28, 0.98, -0.12, 'Pelvis · 26 bones', 'c');
+    anno(g, 0.00, 0.92, 0.02, 'Pelvis · 26 bones', 'c');
     anno(g, 0.02, 1.52, 0.12, 'Jaw · 14 bones', 'a');
 
     // door: inside the ribcage, where the organs are held
