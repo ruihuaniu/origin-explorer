@@ -98,7 +98,7 @@ window.SCALE.LEVELS = [
       'A cell is a droplet of salty water wrapped in a film of oil, running thousands of ' +
       'chemical reactions at once without ever getting them wrong. Everything alive is ' +
       'either a cell or a colony of them.',
-    compare: 'About 200 of them would fit across a grain of salt.',
+    compare: 'About 25–50 of them would fit across a grain of salt.',
     facts: [
       ['Typical size', '10–30 µm across'],
       ['Proteins', '~200 million molecules per cell'],
@@ -118,7 +118,7 @@ window.SCALE.LEVELS = [
       'The control room. Every instruction for building and running you is stored in here, ' +
       'wrapped around protein spools and coiled so tightly that two metres of DNA fits ' +
       'inside something smaller than a dust mote.',
-    compare: 'If the nucleus were a basketball, your DNA would stretch 40 km.',
+    compare: 'If the nucleus were a basketball, your DNA would stretch about 80 km.',
     facts: [
       ['Diameter', '~6 µm'],
       ['Contents', '46 chromosomes (23 pairs)'],
@@ -158,7 +158,7 @@ window.SCALE.LEVELS = [
       'Two backbones spiral around each other with rungs of paired bases between them. ' +
       'The pairing rule — A always with T, G always with C — is what lets the molecule ' +
       'copy itself, and it is why life can persist.',
-    compare: 'About 20,000 DNA helices side by side would span a human hair.',
+    compare: 'About 40,000 DNA helices side by side would span a human hair.',
     facts: [
       ['Diameter', '2 nm'],
       ['One turn', '3.4 nm — exactly 10 base pairs'],
